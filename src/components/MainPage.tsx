@@ -3,7 +3,9 @@ import Style from './MainPage.module.css'
 
 function MainPage() {
   return (
-    <div>MainPage</div>
+    <div>
+      
+    </div>
   )
 }
 

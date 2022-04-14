@@ -19,7 +19,7 @@
     display: flex;
     justify-content: center;
     position: fixed;
-    top: 0;
+    top: 2.2rem;
     left: -100%;
     transition: 850ms;
 }
@@ -51,6 +51,10 @@
 }
 
 .nav-text a:hover {
+    background-color: #1a83ff;
+}
+
+.nav-text a:focus-visible {
     background-color: #1a83ff;
 }
 
