@@ -1,27 +1,28 @@
-import './App.css';
-import { Routes, Route } from 'react-router-dom';
-import SideBar from './components/SideBar';
-import Header from './components/Header';
-import Home from './pages/Home';
-import About from './pages/About';
-import Products from './pages/Products';
-import SideBarTwo from './components/SideBarTwo';
-import MainPage from './components/MainPage';
+import "./App.css";
+import { Routes, Route } from "react-router-dom";
+import SideBar from "./components/SideBar";
+import Header from "./components/Header";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Products from "./pages/Products";
+import SideBarTwo from "./components/SideBarTwo";
+import MainPage from "./components/MainPage";
+import { RecoilRoot } from "recoil";
 
 function App() {
-
   return (
-    <div className="App">
+    <RecoilRoot>
+      <div className="App">
         <Header />
-      {/* <SideBar /> */}
-      <SideBarTwo />
+        {/* <SideBar /> */}
+        <SideBarTwo />
         <Routes>
-        <Route path='/' element={<Home/>} />
-        <Route path='/about' element={<About/>} />
-        <Route path='/products' element={<Products />} />
-        <Route path='/persons' element={<MainPage/>}/>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/products" element={<Products />} />
         </Routes>
-    </div>
+      </div>
+    </RecoilRoot>
   );
 }
 

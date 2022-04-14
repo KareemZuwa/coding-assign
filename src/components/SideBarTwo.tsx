@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useRecoilState } from 'recoil'
 import { Node } from "../models/Node";
 import { Link } from "react-router-dom";
 import { SideBarData } from "./SideBarData";
@@ -6,6 +7,7 @@ import * as FaIcons from "react-icons/fa";
 import "./SideBarTwo.css";
 import Tree from "./tree/Tree";
 import About from "../pages/About";
+import atomPersons from '../atoms/Persons'
 
 function SideBarTwo() {
   const [node, setNode] = useState<Node[]>([]);
@@ -27,9 +29,9 @@ function SideBarTwo() {
     <div className="sidebar">
       <ul className="sidebar-list">
         {node.map((item) =>
-          item.children.map((tree, index) => (
+          item.children.map((tree: Node, index: number) => (
             <li key={index} className="nav-text">
-              <Link to={'/persons'}>
+              <Link to={'/about'} state={{ person: tree }}>
                 <div>
                   <FaIcons.FaCaretRight />
                 </div>

@@ -1,10 +1,11 @@
 import React from 'react'
-import Style from './MainPage.module.css'
+import { useRecoilState } from 'recoil'
+import './MainPage.css'
 
 function MainPage() {
   return (
     <div>
-      
+      <h1>Whut up yall</h1>
     </div>
   )
 }
