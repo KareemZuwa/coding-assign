@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Node } from "../models/Node";
 import * as BsIcons from "react-icons/bs";
 import { Link } from "react-router-dom";
@@ -9,13 +9,13 @@ interface SidebarItemProps {
 }
 
 function SidebarItem({ parent }: SidebarItemProps) {
-  const [open, setOpen] = useState<boolean>(false);
+    const [open, setOpen] = useState<boolean>(false);
 
   if (parent.children.length > 0) {
     return (
       <div className={open ? "sidebar-item open" : "sidebar-item"}>
         <div className="sidebar-title">
-          <Link to={"/persons"} state={{ person: parent }}>
+                <Link className="link" to={"/persons"} state={{ person: parent }}>
             <span>{parent.name}</span>
           </Link>
           <BsIcons.BsChevronDown
@@ -34,7 +34,7 @@ function SidebarItem({ parent }: SidebarItemProps) {
     return (
       <div className="sidebar-item">
         <div className="sidebar-title">
-          <Link to={"/persons"} state={{ person: parent }}>
+          <Link className="link" to={"/persons"} state={{ person: parent }}>
             <span>{parent.name}</span>
           </Link>
         </div>

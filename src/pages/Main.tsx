@@ -8,7 +8,6 @@ interface LocationState {
 function About() {
   let location = useLocation();
   const { person } = location.state as LocationState;
-  console.log(person.name)
 
   return (
     <div className="main">
