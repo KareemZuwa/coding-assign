@@ -1,35 +1,38 @@
-.navbar {
-    background-color: #060b26;
-    height: 5rem;
+.sidebar-wrapper {
+    display: flex;
+}
+
+.sidebar {
+    width: 20rem;
+    background-color: #2f4050;
+    height: 100%;
+    overflow: auto;
+}
+
+.icon {
+    margin-right: 1rem;
+    font-size: 1.5rem;
+}
+.nav-text {
     display: flex;
     justify-content: start;
     align-items: center;
+    padding: 0.5rem 0rem 0.5rem 1rem;
+    list-style: none;
+    height: 3.75rem;
+    margin-bottom: 25rem;
 }
 
-.menu-bars {
-    margin-left: 2rem;
-    font-size: 2rem;
-    background: none;
-}
-
-.nav-menu {
-    background-color: #060b26;
-    width: 15.625rem;
-    height: 100vh;
+.nav-text-child {
     display: flex;
-    justify-content: center;
-    position: fixed;
-    top: 2.2rem;
-    left: -100%;
-    transition: 850ms;
+    justify-content: start;
+    align-items: center;
+    padding: 0.5rem 0rem 0.5rem 1rem;
+    list-style: none;
+    height: 3.75rem;
 }
 
-.nav-menu.active {
-    left: 0;
-    transition: 350ms;
-}
-
-.nav-text {
+.nav-text-second-child {
     display: flex;
     justify-content: start;
     align-items: center;
@@ -42,13 +45,13 @@
     text-decoration: none;
     color: #f5f5f5;
     font-size: 1.125rem;
-    width: 95%;
+    width: 40%;
     height: 100%;
     display: flex;
     align-items: center;
     padding: 0 1rem;
     border-radius: 0.25rem;
-}
+} */
 
 .nav-text a:hover {
     background-color: #1a83ff;
@@ -57,21 +60,3 @@
 .nav-text a:focus-visible {
     background-color: #1a83ff;
 }
-
-.nav-menu-items {
-    width: 100%;
-}
-
-.navbar-toggle {
-    background-color: #060b26;
-    width: 100%;
-    height: 5rem;
-    display: flex;
-    justify-content: start;
-    align-items: center;
-}
-
-span {
-    margin-left: 1rem;
-}
-

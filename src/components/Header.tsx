@@ -1,12 +1,14 @@
-import React from 'react'
+import { Link } from 'react-router-dom'
 import './Header.css'
 
 function Header() {
   let title:string = "Coding Assignment Kareem"
 
   return (
-      <div className="header">
-          <h1 className="header-title">{title}</h1>
+    <div className="header">
+      <Link className="header-link" to={'/'}>
+        <h1 className="header-title">{title}</h1>
+        </Link>
     </div>
   )
 }

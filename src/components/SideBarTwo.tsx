@@ -1,13 +1,8 @@
 import { useEffect, useState } from "react";
-import { useRecoilState } from 'recoil'
 import { Node } from "../models/Node";
 import { Link } from "react-router-dom";
-import { SideBarData } from "./SideBarData";
 import * as FaIcons from "react-icons/fa";
 import "./SideBarTwo.css";
-import Tree from "./tree/Tree";
-import About from "../pages/About";
-import atomPersons from '../atoms/Persons'
 
 function SideBarTwo() {
   const [node, setNode] = useState<Node[]>([]);
@@ -29,34 +24,62 @@ function SideBarTwo() {
     <div className="sidebar">
       <ul className="sidebar-list">
         {node.map((item) =>
-          item.children.map((tree: Node, index: number) => (
+          item.children.map((tree: Node, index: number) => {
+            return (
             <li key={index} className="nav-text">
-              <Link to={'/about'} state={{ person: tree }}>
+              <Link to={"/persons"} state={{ person: tree }}>
                 <div>
                   <FaIcons.FaCaretRight />
                 </div>
-                <div>{tree.name}</div>
-              </Link>
+                  <div>{tree.name}</div>
+                </Link>
+                <ul className="subitem-wrapper">
+              {tree.children.map((subitem, index) => {
+                return (
+                  <li key={index} className="nav-text-child">
+                    <Link to={"/persons"} state={{ person: subitem }}>
+                      <div>{subitem.name}</div>
+                    </Link>
+                    <ul className="second-subitem-wrapper">
+                      {subitem.children.map((subitemtwo, index) => {
+                        return (
+                          <li key={index} className="nav-text-second-child">
+                            <Link to={"/persons"} state={{ person: subitemtwo }}>
+                              <div>{subitemtwo.name}</div>
+                            </Link>
+                            <ul className="second-subitem-wrapper">
+                      {subitemtwo.children.map((subitemthree, index) => {
+                        return (
+                          <li key={index} className="nav-text-second-child">
+                            <Link to={"/persons"} state={{ person: subitemthree }}>
+                              <div>{subitemthree.name}</div>
+                            </Link>
+                            <ul className="second-subitem-wrapper">
+                      {subitemthree.children.map((subitemfour, index) => {
+                        return (
+                          <li key={index} className="nav-text-second-child">
+                            <Link to={"/persons"} state={{ person: subitemfour }}>
+                              <div>{subitemfour.name}</div>
+                            </Link>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </li>
+                );
+              })}
+              </ul>
             </li>
-          ))
+          )})
         )}
-
-        {/* {node.map((index, tree) => (
-          
-          // <Tree key={ index} data={tree}/>
-        ))} */}
-        {/* <Tree data={ node}/> */}
-        {/* {SideBarData.map((item, index) => {
-        return (
-          <li key={index} className={item.className}>
-            <Link to={item.path}>
-            <div><FaIcons.FaCaretRight /></div>
-            <div>{item.title}</div>
-            </Link>
-          </li>
-        )
-       
-      })} */}
       </ul>
     </div>
   );

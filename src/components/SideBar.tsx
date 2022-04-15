@@ -1,18 +1,11 @@
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import * as FaIcons from "react-icons/fa";
-import * as AiIcons from "react-icons/ai";
-import { SideBarData } from "./SideBarData";
-import { IconContext } from "react-icons";
-import "./SideBar.css";
-import Tree from "./tree/Tree";
+import { useEffect, useState } from "react";
+import { Node } from "../models/Node";
+import SidebarItem from './SidebarItem'
+import "./Sidebar.css";
 
 function SideBar() {
-    const [sidebar, setSidebar] = useState<boolean>(false);
-    const [node, setNode] = useState([]);
+    const [node, setNode] = useState<Node[]>([]);
 
-    const showSidebar = () => setSidebar(!sidebar);
-    
     useEffect(() => {
         async function sendRequest() {
           const response = await fetch(
@@ -25,35 +18,14 @@ function SideBar() {
     }, [setNode]);
 
   return (
-    <>
-      <IconContext.Provider value={{ color: "#fff" }}>
-        <div className="navbar">
-          <Link to="#" className="menu-bars">
-            <FaIcons.FaBars onClick={showSidebar} />
-          </Link>
-        </div>
-        <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
-          <ul className="nav-menu-items" onClick={showSidebar}>
-            <li className="navbar-toggle">
-              <Link to="#" className="menu-bars">
-                <AiIcons.AiOutlineClose />
-              </Link>
-                      </li> 
-                      {/* <Tree data={node}/>           */}
-            {/* {SideBarData.map((item, index) => {
-              return (
-                <li key={index} className={item.className}>
-                  <Link to={item.path}
-                    {item.icon}
-                    <span>{item.title}</span>
-                  </Link>
-                </li>
-              );
-            })} */}
-          </ul>
-        </nav>
-      </IconContext.Provider>
-    </>
+    <div className="sidebar-wrapper">
+          <div className="sidebar">
+
+              {node.map(item => 
+                  item.children.map((parent: Node, index: number) => <SidebarItem key={index} parent={parent} />))}
+              
+      </div>
+    </div>
   );
 }
 
