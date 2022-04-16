@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
 import Header from "./components/Header";
 import Home from "./pages/Home";
-import About from "./pages/Main";
+import Main from "./pages/Main";
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
       <Sidebar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/persons" element={<About />} />
+          <Route path="/persons" element={<Main />} />
         </Routes>
         </div>
       </div>

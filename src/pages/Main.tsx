@@ -5,7 +5,7 @@ interface LocationState {
   person: Node;
 }
 
-function About() {
+function Main() {
   let location = useLocation();
   const { person } = location.state as LocationState;
 
@@ -19,4 +19,4 @@ function About() {
   )
 }
 
-export default About
+export default Main

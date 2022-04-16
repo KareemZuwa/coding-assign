@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Node } from "../models/Node";
 import * as BsIcons from "react-icons/bs";
 import { Link } from "react-router-dom";

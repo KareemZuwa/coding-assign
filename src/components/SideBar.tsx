@@ -20,10 +20,8 @@ function SideBar() {
   return (
     <div className="sidebar-wrapper">
           <div className="sidebar">
-
               {node.map(item => 
                   item.children.map((parent: Node, index: number) => <SidebarItem key={index} parent={parent} />))}
-              
       </div>
     </div>
   );
