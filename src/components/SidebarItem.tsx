@@ -9,13 +9,13 @@ interface SidebarItemProps {
 }
 
 function SidebarItem({ parent }: SidebarItemProps) {
-    const [open, setOpen] = useState<boolean>(false);
+  const [open, setOpen] = useState<boolean>(false);
 
   if (parent.children.length > 0) {
     return (
       <div className={open ? "sidebar-item open" : "sidebar-item"}>
         <div className="sidebar-title">
-                <Link className="link" to={"/persons"} state={{ person: parent }}>
+          <Link className="link" to={"/persons"} state={{ person: parent }}>
             <span>{parent.name}</span>
           </Link>
           <BsIcons.BsChevronDown
