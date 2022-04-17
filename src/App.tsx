@@ -1,9 +1,9 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-import SideBar from "./components/SideBar";
-import Header from "./components/Header";
 import Home from "./pages/Home";
 import Main from "./pages/Main";
+import SideBar from "./components/SideBar";
+import Header from "./components/Header";
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
       <SideBar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/persons" element={<Main />} />
+          <Route path="/persons/:userID" element={<Main />} />
         </Routes>
         </div>
       </div>

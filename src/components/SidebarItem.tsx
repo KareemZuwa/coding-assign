@@ -15,7 +15,7 @@ function SidebarItem({ parent }: SidebarItemProps) {
     return (
       <div className={open ? "sidebar-item open" : "sidebar-item"}>
         <div className="sidebar-title">
-          <Link className="link" to={"/persons"} state={{ person: parent }}>
+          <Link className="link" to={"/persons/" + parent.id} state={{ person: parent }}>
             <span>{parent.name}</span>
           </Link>
           <BsIcons.BsChevronDown
@@ -24,8 +24,8 @@ function SidebarItem({ parent }: SidebarItemProps) {
           />
         </div>
         <div className="sidebar-content">
-          {parent.children.map((child, index) => (
-            <SidebarItem key={index} parent={child} />
+          {parent.children.map((parent, index) => (
+            <SidebarItem key={index} parent={parent} />
           ))}
         </div>
       </div>
@@ -34,7 +34,7 @@ function SidebarItem({ parent }: SidebarItemProps) {
     return (
       <div className="sidebar-item">
         <div className="sidebar-title">
-          <Link className="link" to={"/persons"} state={{ person: parent }}>
+          <Link className="link" to={"/persons/" + parent.id} state={{ person: parent }}>
             <span>{parent.name}</span>
           </Link>
         </div>
