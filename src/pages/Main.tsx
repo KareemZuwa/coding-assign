@@ -1,5 +1,5 @@
-import { useLocation } from 'react-router-dom';
-import { Node } from '../models/Node';
+import { useLocation } from "react-router-dom";
+import { Node } from "../models/Node";
 
 interface LocationState {
   person: Node;
@@ -14,9 +14,8 @@ function Main() {
       <div className="main-content">
         <h1 key={person.id}>{person.name}</h1>
       </div>
-      
     </div>
-  )
+  );
 }
 
-export default Main
+export default Main;

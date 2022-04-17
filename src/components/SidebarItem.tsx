@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Node } from "../models/Node";
 import * as BsIcons from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./SidebarItem.css";
 
 interface SidebarItemProps {
@@ -15,9 +15,13 @@ function SidebarItem({ parent }: SidebarItemProps) {
     return (
       <div className={open ? "sidebar-item open" : "sidebar-item"}>
         <div className="sidebar-title">
-          <Link className="link" to={"/persons/" + parent.id} state={{ person: parent }}>
+          <NavLink
+            className="NavLink"
+            to={"/persons/" + parent.id}
+            state={{ person: parent }}
+          >
             <span>{parent.name}</span>
-          </Link>
+          </NavLink>
           <BsIcons.BsChevronDown
             className="toggle-btn"
             onClick={() => setOpen(!open)}
@@ -34,9 +38,13 @@ function SidebarItem({ parent }: SidebarItemProps) {
     return (
       <div className="sidebar-item">
         <div className="sidebar-title">
-          <Link className="link" to={"/persons/" + parent.id} state={{ person: parent }}>
+          <NavLink
+            className="NavLink"
+            to={"/persons/" + parent.id}
+            state={{ person: parent }}
+          >
             <span>{parent.name}</span>
-          </Link>
+          </NavLink>
         </div>
       </div>
     );
