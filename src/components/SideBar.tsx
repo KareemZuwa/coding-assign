@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Node } from "../models/Node";
 import SidebarItem from "./SidebarItem";
-import "./Sidebar.css";
+import "./SideBar.css";
 
 function SideBar() {
   const [node, setNode] = useState<Node[]>([]);
